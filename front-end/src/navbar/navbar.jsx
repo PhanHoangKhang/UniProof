@@ -44,20 +44,20 @@ const Navbar = () => {
           <a href="/" className={({ isActive }) => isActive
                 ? "pb-1 border-b-2 border-[rgb(5,247,202)] hover:text-[rgb(5,247,202)] text-lg"
                 : "hover:text-[rgb(5,247,202)] text-lg"
-          }>
+          } >
             Trang chủ
           </a>
           <a href="#services" className={({ isActive }) => isActive
                 ? "pb-1 border-b-2 border-[rgb(5,247,202)] hover:text-[rgb(5,247,202)] text-lg"
                 : "hover:text-[rgb(5,247,202)] text-lg"
-          }>
+          } >
             Dịch vụ
           </a>
           <a href="#testimonials" className={({ isActive }) =>
               isActive
                 ? "pb-1 border-b-2 border-[rgb(5,247,202)] hover:text-[rgb(5,247,202)] text-lg"
                 : "hover:text-[rgb(5,247,202)] text-lg"
-          }>
+          } >
             Hỗ trợ
           </a>
         </nav>
@@ -103,36 +103,39 @@ const Navbar = () => {
       {open && (
         <div className="fixed top-[91px] h-[calc(100vh-91px)] w-full z-10 animate-slideDown">
           <nav className="flex flex-col h-full text-left bg-[black] text-white gap-3 px-8 py-6 md:hidden">
-            <NavLink
-              to="/"
+            <a
+              href="/"
               className={({ isActive }) =>
                 isActive
                   ? "pb-1 hover:text-[#faca0b] text-[#faca0b] text-2xl font-semibold"
-                  : "hover:text-[#faca0b] text-2xl font-semibold"
+                  : "hover:text-[#faca0b] text-2xl font-semibold text-[#faca0b]"
               }
+              onClick={() => setOpen(false)}
             >
               Trang chủ
-            </NavLink>
-            <NavLink
-              to="/skills"
+            </a>
+            <a
+              href="#services"
               className={({ isActive }) =>
                 isActive
                   ? "pb-1 hover:text-[#faca0b] text-[#faca0b] text-2xl font-semibold"
                   : "hover:text-[#faca0b] text-2xl font-semibold"
               }
+              onClick={() => setOpen(false)}
             >
               Dịch vụ
-            </NavLink>
-            <NavLink
-              to="/contact"
+            </a>
+            <a
+              href="#testimonials"
               className={({ isActive }) =>
                 isActive
                   ? "pb-1 hover:text-[#faca0b] text-2xl text-[#faca0b] font-semibold"
                   : "hover:text-[#faca0b] text-2xl font-semibold"
               }
+              onClick={() => setOpen(false)}
             >
               Hỗ trợ
-            </NavLink>
+            </a>
 
             {/* Mobile login/logout */}
             {!user ? (
