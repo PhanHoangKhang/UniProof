@@ -56,5 +56,23 @@ const infoBooking = async(req, res) => {
   }
 };
 
+const deleteBooking = async (req, res) => {
+  try {
+    const { id } = req.params
+    const booking = await Booking.findById(id)
 
-export {createBooking, getBooking, infoBooking}
+    if(!booking) {
+      return res.status(404).json({message:'Booking not found'})
+    }
+
+    await Booking.findByIdAndDelete(id)
+    res.json({message: 'Booking cancelled successfully!'})
+
+  } catch (error) {
+    console.error("Error cancelling booking:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+}
+
+
+export {createBooking, getBooking, infoBooking, deleteBooking}
