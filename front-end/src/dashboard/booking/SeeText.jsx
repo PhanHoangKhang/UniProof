@@ -34,6 +34,8 @@ const SeeText = () => {
         <div className="space-y-3">
             <p><strong>Tiêu đề:</strong> {booking.title || "Không có tiêu đề"}</p>
             <p><strong>Ghi chú:</strong> {booking.notes || "Không có ghi chú"}</p>
+            <p><strong>Mentor Email:</strong> {booking.mentor?.email}</p>
+            <p><strong>Student Email:</strong> {booking.student?.email}</p>
             <p><strong>Ngày:</strong> {new Date(booking.date).toLocaleDateString("vi-VN")}</p>
             <p><strong>Thời gian:</strong> {booking.timeSlot}</p>
             {/*  Display text content if available */}

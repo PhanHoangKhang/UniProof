@@ -42,7 +42,9 @@ const infoBooking = async(req, res) => {
  
   try {
     const { id } = req.params;
-    const user = await Booking.findById(id);
+    const user = await Booking.findById(id)
+    .populate("mentor", "email name")
+    .populate("student", "email name");
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });

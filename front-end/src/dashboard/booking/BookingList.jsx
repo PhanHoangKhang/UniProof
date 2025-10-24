@@ -42,11 +42,9 @@ const BookingList = () => {
         <div>
           <p className="font-semibold text-[#16456a]">
             Mentor: {booking.mentor?.name || "N/A"}
-            <span className="text-gray-600"> ----- Email: {booking.mentor?.email}</span>
           </p>
           <p className="font-semibold text-[#16456a]">
             Student: {booking.student?.name || "N/A"}
-            <span className="text-gray-600"> ----- Email: {booking.student?.email}</span>
           </p>
           <br></br>
           <p className="text-gray-600">
