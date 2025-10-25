@@ -1,5 +1,5 @@
 import express from 'express'
-import { createBooking, getBooking, infoBooking } from '../controller/BookingController.js'
+import { createBooking, deleteBooking, getBooking, infoBooking } from '../controller/BookingController.js'
 import multer from "multer";
 
 const meetingRouter = express.Router()
@@ -15,5 +15,6 @@ const upload = multer({storage: storage});
 meetingRouter.post('/create', upload.single('file'), createBooking)
 meetingRouter.get("/:userId", getBooking);
 meetingRouter.get('/info/:id', infoBooking)
+meetingRouter.delete('/:id', deleteBooking)
 
 export default meetingRouter
