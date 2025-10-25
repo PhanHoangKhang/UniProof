@@ -41,7 +41,7 @@ const Navbar = () => {
         </a>
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-6">
-          <a href="/" className={({ isActive }) => isActive
+          <a href="#main" className={({ isActive }) => isActive
                 ? "pb-1 border-b-2 border-[rgb(5,247,202)] hover:text-[rgb(5,247,202)] text-lg"
                 : "hover:text-[rgb(5,247,202)] text-lg"
           } >
@@ -104,7 +104,7 @@ const Navbar = () => {
         <div className="fixed top-[91px] h-[calc(100vh-91px)] w-full z-10 animate-slideDown">
           <nav className="flex flex-col h-full text-left bg-[black] text-white gap-3 px-8 py-6 md:hidden">
             <a
-              href="/"
+              href="#main"
               className={({ isActive }) =>
                 isActive
                   ? "pb-1 hover:text-[#faca0b] text-[#faca0b] text-2xl font-semibold"
