@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <>
       <div className="fixed z-10 top-0 left-0 w-full bg-[#16456a] text-white flex justify-between  
-          items-center py-5 px-10 border-b border-[rgb(5,247,202)] shadow-md">
+          items-center py-5 px-10 border-b border-[#efbd18] shadow-md">
         {/* Logo */}
         <a href="/" className="flex flex-row justify-center items-center gap-5 font-bold text-2xl">
           <img src={logo} width="50" height="50" alt="logo" />
@@ -66,7 +66,7 @@ const Navbar = () => {
           {!user ? (
             // If not logged in
             <SignInModal text="Đăng nhập" buttonClass="z-0 px-4 py-2 bg-white border-none text-[#16456a] rounded-lg 
-              hover:bg-[rgb(5,247,202)] hover:text-white transition font-semibold shadow-sm sm:hidden md:block"
+              hover:bg-[#efbd18] hover:text-white transition font-semibold shadow-sm sm:hidden md:block"
             /> ) : (
             // If logged in
             <>
