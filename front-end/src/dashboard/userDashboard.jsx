@@ -51,7 +51,7 @@ const UserDashboard = () => {
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       {/* Header */}
-      <header className="fixed w-full flex justify-between items-center bg-[#16456a] py-4 px-8 text-white border-2 border-[#faca0b]">
+      <header className="fixed w-full flex justify-between items-center bg-[#16456a] py-4 px-10 text-white border-2 border-[#faca0b]">
         <a href="/" className="flex flex-row justify-center items-center gap-3 font-bold text-2xl">
           <img src={logo} width="45" height="45" alt="Logo" />
           <span>
@@ -59,8 +59,8 @@ const UserDashboard = () => {
           </span>
         </a>
         <div className="hidden md:flex items-center gap-4"> 
-          <Link to="/chat" className='bg-[#efbd18] rounded-lg py-2 px-3 font-semibold text-black'>
-          Chat forum
+          <Link to="/chat" className='bg-[#efbd18] rounded-lg py-3 px-4 font-semibold text-black text-md'>
+          Chat với mentor
           </Link> 
         </div>
 
@@ -80,7 +80,7 @@ const UserDashboard = () => {
       </header>
 
       {/* Main Content */}
-      <div className="flex flex-1 mt-20 overflow-hidden border-t border-black">
+      <div className="flex flex-1 mt-21 overflow-hidden border-t border-black">
         {/* Sidebar */}
         <aside className="hidden w-[20%] border-r border-black md:flex md:flex-col justify-between overflow-y-auto">
           <nav className="hidden md:flex md:flex-col">
