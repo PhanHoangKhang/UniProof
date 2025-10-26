@@ -19,7 +19,7 @@ const Confirm = ({ buttonClass, text, setUser }) => {
         {text}
       </button>
       {popUp && (
-        <div className="fixed inset-0 bg-white/50 backdrop-blur-sm flex justify-center items-center z-999">
+        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-999">
           <div className="bg-white text-black rounded-2xl shadow-2xl p-8 w-96 relative animate-fadeIn">
             <button
               onClick={() => setPopUp(false)}

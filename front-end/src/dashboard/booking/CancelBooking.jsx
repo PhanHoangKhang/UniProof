@@ -26,7 +26,7 @@ const CancelBooking = ({bookingId, buttonClass, text}) => {
         <button onClick={() => setPopUp(true)} className={buttonClass}>{text}</button>
         {/* Popup modal */}
         {popUp && (
-            <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-[999]">
+            <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-[999]">
             <div className="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 w-96 relative">
                 <button
                 onClick={() => setPopUp(false)}
