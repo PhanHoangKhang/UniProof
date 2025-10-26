@@ -67,6 +67,9 @@ const ChatPage = () => {
                       : "hover:bg-[#1f2937]"
                   }`}
                 >
+                    <div className="w-8 h-8 bg-[#efbd18] rounded-full flex items-center justify-center text-white text-xl font-bold">
+                        {u.name.charAt(0).toUpperCase()}
+                    </div>
                   <div className="flex flex-col">
                     <span className="font-medium text-sm">{u.name}</span>
                   </div>
