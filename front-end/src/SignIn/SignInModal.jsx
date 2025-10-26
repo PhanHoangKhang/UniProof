@@ -47,7 +47,6 @@ const SignInModal = ({ buttonClass, text }) => {
           // Close popup and navigate
           setTimeout(() => {
             setShowPopup(false);
-            navigate("/");
           }, 1500);
         } else {
           setMessage({ text: response.data.message, type: "error" });
