@@ -77,25 +77,44 @@ export default function ChatBox({ currentUser, selectedUser }) {
       </div>
 
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3 scrollbar-thin scrollbar-thumb-[#efbd18]/40 scrollbar-track-transparent">
+      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-4 scrollbar-thin scrollbar-thumb-[#efbd18]/40 scrollbar-track-transparent">
         {messages.map((m, i) => {
-          const isMine = m.senderId === currentUser._id;
-          return (
-            <div key={i} className={`flex ${isMine ? "justify-end" : "justify-start"}`}>
-              <div
+            const isMine = m.senderId === currentUser._id;
+            return (
+            <div
+                key={i}
+                className={`flex items-end gap-2 ${isMine ? "justify-end" : "justify-start"}`}
+            >
+                {/* Other User Avatar (Left) */}
+                {!isMine && (
+                <div className="w-8 h-8 bg-[#efbd18] rounded-full flex items-center justify-center text-[#0b1725] text-base font-bold shadow-md">
+                    {selectedUser.name?.charAt(0).toUpperCase()}
+                </div>
+                )}
+
+                {/* Message Bubble */}
+                <div
                 className={`max-w-[70%] px-4 py-2 text-sm rounded-2xl shadow-sm ${
-                  isMine
-                    ? "bg-[#efbd18] text-[#0b1725] rounded-br-none"
+                    isMine
+                    ? "bg-[#efbd18] text-[#0b1725] rounded-br-none self-end"
                     : "bg-[#142537]/80 text-gray-100 border border-[#efbd18]/10 rounded-bl-none"
                 }`}
-              >
+                >
                 {m.content}
-              </div>
+                </div>
+
+                {/* Current User Avatar (Right) */}
+                {isMine && (
+                <div className="w-8 h-8 bg-[#0b1725]/80 rounded-full flex items-center justify-center text-[#efbd18] text-base font-bold shadow-md">
+                    {currentUser.name?.charAt(0).toUpperCase()}
+                </div>
+                )}
             </div>
-          );
+            );
         })}
         <div ref={bottomRef} />
-      </div>
+        </div>
+
 
       {/* Input Area */}
       <div className="p-3 border-t border-[#efbd18]/20 bg-[#0b1725]/80">
