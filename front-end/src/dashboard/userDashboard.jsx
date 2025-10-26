@@ -13,6 +13,7 @@ const UserDashboard = () => {
   const { setUser } = useContext(StoreContext);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { apiUrl } = useContext(StoreContext);
 
   useEffect(() => {
     const userData = localStorage.getItem("user");
@@ -27,7 +28,7 @@ const UserDashboard = () => {
 
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/user/profile", {
+        const res = await axios.get(`${apiUrl}/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserName(res.data.user.name);

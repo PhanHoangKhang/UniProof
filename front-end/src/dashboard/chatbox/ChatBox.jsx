@@ -1,20 +1,21 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
+import { StoreContext } from "../../Context/StoreContext";
 import { io } from "socket.io-client";
 import axios from "axios";
 import { Send } from "lucide-react";
-
-const socket = io("http://localhost:3000");
 
 export default function ChatBox({ currentUser, selectedUser }) {
   const [messages, setMessages] = useState([]);
   const [content, setContent] = useState("");
   const bottomRef = useRef();
+  const { apiUrl } = useContext(StoreContext);
+  const socket = io(`${apiUrl}`);
 
   // Fetch previous messages
   useEffect(() => {
     if (!selectedUser) return;
     axios
-      .get(`http://localhost:3000/api/chat/${currentUser._id}/${selectedUser._id}`)
+      .get(`${apiUrl}/api/chat/${currentUser._id}/${selectedUser._id}`)
       .then((res) => setMessages(res.data))
       .catch((err) => console.error("Error fetching messages:", err));
   }, [selectedUser]);
@@ -51,7 +52,7 @@ export default function ChatBox({ currentUser, selectedUser }) {
     };
 
     try {
-      await axios.post("http://localhost:3000/api/chat", msgData);
+      await axios.post(`${apiUrl}/api/chat`, msgData);
       socket.emit("sendMessage", msgData);
       setMessages((prev) => [...prev, msgData]);
       setContent("");

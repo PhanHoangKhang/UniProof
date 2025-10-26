@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { StoreContext } from "../../Context/StoreContext";
 
 const CancelBooking = ({bookingId, buttonClass, text}) => {
     const [popUp, setPopUp] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
+    const { apiUrl } = useContext(StoreContext);
 
     const handleCancel = async () => {
         try {
             setLoading(true);
-            const res = await fetch(`http://localhost:3000/api/bookings/${bookingId}`, {
-            method: "DELETE",
+            const res = await fetch(`${apiUrl}/api/bookings/${bookingId}`, {
+                method: "DELETE",
             });
             const data = await res.json();
             navigate("/dashboard/submitted");
         } catch (error) {
             console.error("Error cancelling booking:", error);
         } finally {
-        setLoading(false);
+            setLoading(false);
         }
     };
 

@@ -15,10 +15,11 @@ const BookMeeting = () => {
   const [title, setTitle] = useState('')
   const [message, setMessage] = useState('')
   const [isSuccess, setIsSuccess] = useState(false);
+  const { apiUrl } = useContext(StoreContext);
 
   useEffect(() => {
     const fetchMentor = async () => {
-      const res = await fetch(`http://localhost:3000/user/${mentorId}`)
+      const res = await fetch(`${apiUrl}/user/${mentorId}`)
       const data = await res.json()
       setMentor(data)
     }
@@ -38,7 +39,7 @@ const BookMeeting = () => {
     formData.append('title', title)
 
     try {
-      const res = await fetch('http://localhost:3000/api/bookings/create', {
+      const res = await fetch(`${apiUrl}/api/bookings/create`, {
         method: 'POST',
         body: formData, // no headers here — browser sets it automatically
       });

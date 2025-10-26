@@ -12,6 +12,7 @@ const SignInModal = ({ buttonClass, text }) => {
   const [role, setRole] = useState("Student");
   const navigate = useNavigate();
   const { user, setUser } = useContext(StoreContext);
+  const { apiUrl } = useContext(StoreContext);
 
   const onLogin = async (event) => {
     event.preventDefault();
@@ -20,7 +21,7 @@ const SignInModal = ({ buttonClass, text }) => {
       ? { email, password }
       : { name, email, password, role };
 
-    let url = "http://localhost:3000/user";
+    let url = `${apiUrl}/user`;
     url += isLogin ? "/login" : "/register";
 
     try {

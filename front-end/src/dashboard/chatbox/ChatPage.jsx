@@ -8,11 +8,12 @@ const ChatPage = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const { apiUrl } = useContext(StoreContext);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:3000/user");
+        const res = await fetch(`${apiUrl}/user`);
         const data = await res.json();
         const filtered = data.filter((u) => u._id !== user._id);
         setUsers(filtered);

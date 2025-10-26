@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
 
 const GrammarAI = () => {
+  const { apiUrl } = useContext(StoreContext);
   const [loading, setLoading] = useState(false);
   const { grammarInput, setGrammarInput, grammarOutput, setGrammarOutput } = useContext(StoreContext);
   
@@ -15,7 +16,7 @@ const GrammarAI = () => {
     setGrammarOutput("");
 
     try {
-      const res = await fetch("http://localhost:3000/api/grammarcheck", {
+      const res = await fetch(`${apiUrl}/api/grammarcheck`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: grammarInput }),

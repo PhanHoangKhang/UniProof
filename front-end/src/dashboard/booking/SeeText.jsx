@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import CancelBooking from "./CancelBooking";
+import { StoreContext } from "../../Context/StoreContext";
 
 const SeeText = () => {
   const { bookingId } = useParams();
   const [ booking, setBooking ] = useState(null);
   const [ loading, setLoading ] = useState(true);
+  const { apiUrl } = useContext(StoreContext);
 
   useEffect(() => {
     const fetchBooking = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/bookings/info/${bookingId}`);
+        const res = await fetch(`${apiUrl}/api/bookings/info/${bookingId}`);
         const data = await res.json();
         setBooking(data);
       } catch (err) {

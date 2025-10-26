@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { StoreContext } from "../Context/StoreContext";
 import axios from "axios";
 
 const UserInfo = () => {
@@ -8,6 +9,7 @@ const UserInfo = () => {
   const [major, setMajor] = useState("");
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
+  const { apiUrl } = useContext(StoreContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -15,7 +17,7 @@ const UserInfo = () => {
 
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/user/profile", {
+        const res = await axios.get(`${apiUrl}/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(res.data.user);
@@ -35,7 +37,7 @@ const UserInfo = () => {
 
     try {
       const res = await axios.put(
-        "http://localhost:3000/user/update",
+        `${apiUrl}/user/update`,
         {
           userId: user._id,
           name: name !== user.name ? name : undefined,
