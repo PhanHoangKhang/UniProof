@@ -95,3 +95,36 @@ body {
   opacity: 1;
   transform: translate(0, 0);
 }
+
+/* Slide in from the left */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.4s ease-in-out forwards;
+}
+
+/* Slide in from the right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.4s ease-in-out forwards;
+}
+

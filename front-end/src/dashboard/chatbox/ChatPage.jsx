@@ -40,7 +40,7 @@ const ChatPage = () => {
       {/* LEFT SIDEBAR */}
       <div
         className={`w-full md:w-1/4 bg-[#16456a] text-white flex flex-col border-r border-white/30 md:rounded-tl-2xl md:rounded-bl-2xl shadow-lg transition-all duration-300
-        ${selectedUser ? "hidden md:flex" : "flex"}`}
+        ${selectedUser ? "hidden md:flex animate-slideInRight" : "flex animate-slideInLeft"}`}
       >
         <div className="p-5 border-b border-white/30 flex items-center gap-2">
           <span className="text-2xl">💬</span>
@@ -104,7 +104,7 @@ const ChatPage = () => {
       {/* CENTER CHAT AREA */}
       <div
         className={`flex-1 flex flex-col bg-white/70 backdrop-blur-sm relative text-[#16456a] transition-all duration-300
-        ${selectedUser ? "flex" : "hidden md:flex"}`}
+        ${selectedUser ? "flex animate-slideInRight" : "hidden md:flex animate-slideInLeft"}`}
       >
         {selectedUser ? (
           <>
