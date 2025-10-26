@@ -31,9 +31,10 @@ const ChatPage = () => {
   });
 
   return (
-    <div className="flex h-[90vh] rounded-2xl overflow-hidden shadow-2xl border ">
+    <div className="flex h-[100vh] rounded-2xl overflow-hidden shadow-2xl border py-10 px-15 ">
       {/* LEFT SIDEBAR - User List */}
-      <div className="w-1/4 bg-[#16456a] backdrop-blur-md text-white border-r border-gray-700 flex flex-col">
+      <div className="w-1/4 bg-[#16456a] backdrop-blur-md text-white border-r border-gray-700 
+      flex flex-col rounded-tl-xl rounded-bl-xl">
         <div className="p-5 border-b border-gray-700 flex items-center gap-2">
           <span className="text-2xl">💬</span>
           <h2 className="font-semibold text-lg text-[#efbd18]">Chat Forum</h2>

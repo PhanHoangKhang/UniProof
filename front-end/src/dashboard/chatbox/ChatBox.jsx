@@ -62,7 +62,7 @@ export default function ChatBox({ currentUser, selectedUser }) {
   };
 
   return (
-    <div className="flex flex-col h-full  backdrop-blur-md rounded-xl shadow-md border border-gray-800 overflow-hidden">
+    <div className="flex flex-col h-full backdrop-blur-md rounded-tr-xl rounded-br-xl shadow-md border border-gray-800 overflow-hidden">
       {/* Header */}
       <div className="flex items-center gap-3 px-5 py-3 bg-[#111827]/80 border-b border-gray-700">
         <div className="w-10 h-10 bg-[#efbd18] rounded-full flex items-center justify-center text-white text-xl font-bold">
@@ -96,7 +96,7 @@ export default function ChatBox({ currentUser, selectedUser }) {
 
       {/* Input Area */}
       <div className="p-3 border-t border-gray-700 bg-[#111827]/80">
-        <div className="flex items-center bg-[#1f2937] rounded-full px-4 py-2">
+        <div className="flex items-center bg-[#efbd18] rounded-full px-4 py-2">
           <input
             type="text"
             value={content}
@@ -107,7 +107,7 @@ export default function ChatBox({ currentUser, selectedUser }) {
           />
           <button
             onClick={sendMessage}
-            className="ml-2 bg-[#efbd18] hover:bg-[#f3c92d] text-black p-2 rounded-full transition-all"
+            className="ml-2 bg-[#05ccfe] hover:bg-[#f3c92d] text-black p-2 rounded-full transition-all"
           >
             <Send size={18} />
           </button>
