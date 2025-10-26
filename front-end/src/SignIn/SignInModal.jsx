@@ -11,11 +11,15 @@ const SignInModal = ({ buttonClass, text }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [role, setRole] = useState("Student");
   const navigate = useNavigate();
+  const [message, setMessage] = useState("");
   const { user, setUser } = useContext(StoreContext);
   const { apiUrl } = useContext(StoreContext);
+  const [loading, setLoading] = useState(false);
 
   const onLogin = async (event) => {
     event.preventDefault();
+    setLoading(true); // start loading
+    setMessage("");   // clear old message
 
     const data = isLogin
       ? { email, password }
@@ -27,25 +31,37 @@ const SignInModal = ({ buttonClass, text }) => {
     try {
       const response = await axios.post(url, data);
 
-      if (response.data.success) {
-        // Save token and user info
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user", JSON.stringify(response.data.user));
-        // Update context
-        setUser(response.data.user);
+      setTimeout(() => {
+        // stop loading *after slight delay* for smoother UX
+        setLoading(false);
 
-        alert(isLogin ? "Đăng nhập thành công!" : "Đăng kí thành công!");
-        setShowPopup(false);
-        navigate("/");
-      } else {
-        alert(response.data.message);
-      }
+        if (response.data.success) {
+          // show message after loading ends
+          setMessage({ text: response.data.message, type: "success" });
+
+          // Save token and user info
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          setUser(response.data.user);
+
+          // Close popup and navigate
+          setTimeout(() => {
+            setShowPopup(false);
+            navigate("/");
+          }, 1500);
+        } else {
+          setMessage({ text: response.data.message, type: "error" });
+        }
+        // Auto clear message after 2.5s
+        setTimeout(() => setMessage(""), 2500);
+      }, 1500);
     } catch (err) {
       console.error("Login error:", err);
-      alert("Đã xảy ra lỗi. Vui lòng thử lại!");
+      setLoading(false);
+      setMessage({ text: "Đã xảy ra lỗi. Vui lòng thử lại!", type: "error" });
     }
   };
-
+  
   return (
     <div className="relative">
       {/* Navigate to dashboard if a user is logging */}
@@ -150,12 +166,24 @@ const SignInModal = ({ buttonClass, text }) => {
                 />
               </div>
 
+              {message && (
+                <p className={`mb-4 text-center text-sm font-semibold ${ message.type === "success" ? "text-green-600" : "text-red-600"}`}>
+                  {message.text}
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-[#368cd1] text-white py-2 rounded-lg hover:bg-[#efbd18] transition-all font-semibold"
+                disabled={loading}
+                className={`w-full py-2 rounded-lg font-semibold transition-all ${
+                  loading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-[#368cd1] hover:bg-[#efbd18] text-white"
+                }`}
               >
-                {isLogin ? "Đăng nhập" : "Đăng kí"}
+                {loading ? "Đang xử lý..." : isLogin ? "Đăng nhập" : "Đăng kí"}
               </button>
+
             </form>
 
             <p className="text-center text-sm text-gray-500 mt-4">
