@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <>
       <div className="fixed z-10 top-0 left-0 w-full bg-[#16456a] text-white flex justify-between  
-          items-center py-5 px-10 border-b border-[#efbd18] shadow-md">
+          items-center py-5 px-10 border-2 border-[#efbd18] shadow-md">
         {/* Logo */}
         <a href="/" className="flex flex-row justify-center items-center gap-5 font-bold text-2xl">
           <img src={logo} width="50" height="50" alt="logo" />
@@ -41,25 +41,9 @@ const Navbar = () => {
         </a>
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-6">
-          <a href="#main" className={({ isActive }) => isActive
-                ? "pb-1 border-b-2 border-[rgb(5,247,202)] hover:text-[rgb(5,247,202)] text-lg"
-                : "hover:text-[rgb(5,247,202)] text-lg"
-          } >
-            Trang chủ
-          </a>
-          <a href="#services" className={({ isActive }) => isActive
-                ? "pb-1 border-b-2 border-[rgb(5,247,202)] hover:text-[rgb(5,247,202)] text-lg"
-                : "hover:text-[rgb(5,247,202)] text-lg"
-          } >
-            Dịch vụ
-          </a>
-          <a href="#testimonials" className={({ isActive }) =>
-              isActive
-                ? "pb-1 border-b-2 border-[rgb(5,247,202)] hover:text-[rgb(5,247,202)] text-lg"
-                : "hover:text-[rgb(5,247,202)] text-lg"
-          } >
-            Hỗ trợ
-          </a>
+          <a href="#main" className="hover:text-[#efbd18] text-lg">Trang chủ</a>
+          <a href="#services" className=" hover:text-[#efbd18] text-lg">Dịch vụ</a>
+          <a href="#testimonials" className="hover:text-[#efbd18] text-lg">Hỗ trợ</a>
         </nav>
         {/*  Right Side Buttons */}
         <div className="hidden md:flex items-center gap-4">
@@ -103,39 +87,9 @@ const Navbar = () => {
       {open && (
         <div className="fixed top-[91px] h-[calc(100vh-91px)] w-full z-10 animate-slideDown">
           <nav className="flex flex-col h-full text-left bg-[black] text-white gap-3 px-8 py-6 md:hidden">
-            <a
-              href="#main"
-              className={({ isActive }) =>
-                isActive
-                  ? "pb-1 hover:text-[#faca0b] text-[#faca0b] text-2xl font-semibold"
-                  : "hover:text-[#faca0b] text-2xl font-semibold text-[#faca0b]"
-              }
-              onClick={() => setOpen(false)}
-            >
-              Trang chủ
-            </a>
-            <a
-              href="#services"
-              className={({ isActive }) =>
-                isActive
-                  ? "pb-1 hover:text-[#faca0b] text-[#faca0b] text-2xl font-semibold"
-                  : "hover:text-[#faca0b] text-2xl font-semibold"
-              }
-              onClick={() => setOpen(false)}
-            >
-              Dịch vụ
-            </a>
-            <a
-              href="#testimonials"
-              className={({ isActive }) =>
-                isActive
-                  ? "pb-1 hover:text-[#faca0b] text-2xl text-[#faca0b] font-semibold"
-                  : "hover:text-[#faca0b] text-2xl font-semibold"
-              }
-              onClick={() => setOpen(false)}
-            >
-              Hỗ trợ
-            </a>
+              <a href="#main" className="hover:text-[#efbd18] text-2xl py-2" onClick={() => setOpen(false)}>Trang chủ</a>
+              <a href="#services" className=" hover:text-[#efbd18] text-2xl py-2" onClick={() => setOpen(false)}>Dịch vụ</a>
+              <a href="#testimonials" className="hover:text-[#efbd18] text-2xl py-2" onClick={() => setOpen(false)}>Hỗ trợ</a>
 
             {/* Mobile login/logout */}
             {!user ? (
