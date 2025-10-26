@@ -8,20 +8,20 @@ const loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    
+
     if (!user) {
-      return res.json({ success: false, message: "User does not exist !!!" });
+      return res.json({ success: false, message: "Người dùng không tồn tại!" });
     }
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.json({ success: false, message: "Invalid info" });
+      return res.json({ success: false, message: "Mật khẩu hoặc email không đúng" });
     }
     const token = createToken(user._id);
     
     res.json({
       success: true,
-      message: "Login successful!",
+      message: "Đăng nhập thành công",
       token,
       user: {
         _id: user._id,
@@ -46,20 +46,20 @@ const registerUser = async (req, res) => {
     const exists = await User.findOne({ email });
     // check user if they have already existed
     if (exists) {
-      return res.json({ success: false, message: "User already existed !!!" });
+      return res.json({ success: false, message: "Người dùng đã tồn tại, vui lòng nhập email khác"});
     }
 
     if (!validator.isEmail(email)) {
       return res.json({
         success: false,
-        message: "Please enter a valid email !!!",
+        message: "Vui lòng nhập email hợp lệ",
       });
     }
 
     if (password.length < 8) {
       return res.json({
         success: false,
-        message: "The password must not be less than 8 characters !!!",
+        message: "Độ dài mật khẩu không được ngắn hơn 8 kí tự",
       });
     }
 
@@ -79,7 +79,7 @@ const registerUser = async (req, res) => {
 
     res.json({
       success: true,
-      message: "Register successful!",
+      message: "Đăng kí thành công!",
       token,
       user: {
         _id: user._id,
@@ -106,7 +106,7 @@ const updateUserInfo = async (req, res) => {
       if (!name.trim() || name.trim().length < 2) {
         return res.json({
           success: false,
-          message: "Name must be at least 2 characters long.",
+          message: "Tên người dùng phải từ 2 kí tự trở lên",
         });
       }
       updateData.name = name.trim();
@@ -116,7 +116,7 @@ const updateUserInfo = async (req, res) => {
       if (!major.trim()) {
         return res.json({
           success: false,
-          message: "Major cannot be empty.",
+          message: "Chuyên ngành không được bỏ trống",
         });
       }
       updateData.major = major.trim();
@@ -126,7 +126,7 @@ const updateUserInfo = async (req, res) => {
       if (!description.trim()) {
         return res.json({
           success: false,
-          message: "Description cannot be empty.",
+          message: "Giới thiệu không được bỏ trống",
         });
       }
       updateData.description = description.trim();
@@ -135,7 +135,7 @@ const updateUserInfo = async (req, res) => {
     if (Object.keys(updateData).length === 0) {
       return res.json({
         success: false,
-        message: "No valid field provided for update.",
+        message: "Vui lòng nhập thông tin cần cập nhật",
       });
     }
     // Find and update user
@@ -149,7 +149,7 @@ const updateUserInfo = async (req, res) => {
 
     return res.json({
       success: true,
-      message: "User information updated successfully!",
+      message: "Cập nhật thông tin thành công!",
       user: {
         _id: updatedUser._id,
         name: updatedUser.name,
@@ -164,6 +164,5 @@ const updateUserInfo = async (req, res) => {
     return res.json({ success: false, message: "Error updating user info." });
   }
 };
-
 
 export { loginUser, registerUser, updateUserInfo };
