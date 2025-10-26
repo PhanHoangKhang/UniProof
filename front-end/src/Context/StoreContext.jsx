@@ -7,6 +7,8 @@ export const StoreProvider = ({ children }) => {
   const [grammarOutput, setGrammarOutput] = useState('')
   const [user, setUser] = useState(null)
 
+  const apiUrl = import.meta.env.VITE_API_URL 
+
   // Load user data from localStorage when app starts
   useEffect(() => {
     const storedUser = localStorage.getItem('user')
@@ -30,7 +32,8 @@ export const StoreProvider = ({ children }) => {
     grammarOutput,
     setGrammarOutput,
     user,
-    setUser
+    setUser,
+    apiUrl
   }
 
   return (

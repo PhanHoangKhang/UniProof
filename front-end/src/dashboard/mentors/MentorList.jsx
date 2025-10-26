@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { StoreContext } from "../../Context/StoreContext";
 
 const MentorList = () => {
+  const { apiUrl } = useContext(StoreContext);
   const [mentors, setMentors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -10,7 +12,7 @@ const MentorList = () => {
   useEffect(() => {
     const fetchMentor = async () => {
       try {
-        const res = await fetch("http://localhost:3000/user/mentors");
+        const res = await fetch(`${apiUrl}/user/mentors`);
         const data = await res.json();
         setMentors(data);
       } catch (error) {

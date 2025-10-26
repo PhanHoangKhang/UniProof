@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { StoreContext } from '../../Context/StoreContext';
 
 const MentorInfo = () => {
   const { mentorId } = useParams();
+  const { apiUrl } = useContext(StoreContext);
   const [mentor, setMentor] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +12,7 @@ const MentorInfo = () => {
   useEffect(() => {
     const fetchMentor = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/user/${mentorId}`);
+        const res = await fetch(`${apiUrl}/user/${mentorId}`);
         if (!res.ok) throw new Error('Không thể tải thông tin mentor');
         const data = await res.json();
         setMentor(data);
