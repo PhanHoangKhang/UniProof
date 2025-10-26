@@ -39,7 +39,7 @@ const ChatPage = () => {
       <div className="w-1/4 bg-[#368cd1]/90 text-white flex flex-col border-r border-white/30 rounded-tl-2xl rounded-bl-2xl shadow-lg">
         <div className="p-5 border-b border-white/30 flex items-center gap-2">
           <span className="text-2xl">💬</span>
-          <h2 className="font-semibold text-lg text-[#efbd18]">Chat Forum</h2>
+          <h2 className="font-semibold text-lg text-[#efbd18]">Chat với mentor</h2>
         </div>
 
         {/* Search Box */}
