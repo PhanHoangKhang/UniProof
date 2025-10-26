@@ -36,7 +36,7 @@ const ChatPage = () => {
   return (
     <div className="flex h-[100vh] rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-gradient-to-br from-white to-[#f3f8fc]">
       {/* LEFT SIDEBAR */}
-      <div className="w-1/4 bg-[#368cd1]/90 text-white flex flex-col border-r border-white/30 rounded-tl-2xl rounded-bl-2xl shadow-lg">
+      <div className="w-1/4 bg-[#16456a] text-white flex flex-col border-r border-white/30 rounded-tl-2xl rounded-bl-2xl shadow-lg">
         <div className="p-5 border-b border-white/30 flex items-center gap-2">
           <span className="text-2xl">💬</span>
           <h2 className="font-semibold text-lg text-[#efbd18]">Chat với mentor</h2>
