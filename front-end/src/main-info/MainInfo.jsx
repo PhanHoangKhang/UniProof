@@ -21,14 +21,15 @@ const MainInfo = () => {
       <section id='main'>
         <div className="mt-32 md:mt-40 flex flex-col-reverse lg:flex-row justify-center items-center gap-10 md:gap-20 px-5 md:px-20 lg:px-32">
           {/* Text Section */}
-          <div className="lg:max-w-[50%] text-center lg:text-left fade-in-left fade-in">
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold">Uni<span className="text-[#efbd18]">Proof</span></p>
-            <p className="text-2xl md:text-3xl mt-4">Dịch Vụ Chấm Chữa Bài Chuẩn Học Thuật</p>
-            <p className="text-lg md:text-xl mt-4">
-              <span className="font-bold italic">"Viết chuẩn, sống thật"</span> -
-              Biến những ý tưởng thành bài luận rõ ràng, mạch lạc, đầy chất sáng tạo
-            </p>
-
+          <div className="lg:max-w-[50%] text-center lg:text-left">
+            <div className="fade-in fade-in-left">
+                <p className="text-4xl md:text-5xl lg:text-6xl font-bold">Uni<span className="text-[#efbd18]">Proof</span></p>
+                <p className="text-2xl md:text-3xl mt-4">Dịch Vụ Chấm Chữa Bài Chuẩn Học Thuật</p>
+                <p className="text-lg md:text-xl mt-4">
+                  <span className="font-bold italic">"Viết chuẩn, sống thật"</span> -
+                  Biến những ý tưởng thành bài luận rõ ràng, mạch lạc, đầy chất sáng tạo
+                </p>
+            </div>
             <div className="mt-6 flex justify-center lg:justify-start">
               <SignInModal buttonClass="bg-[#368cd1] text-white font-bold rounded-lg py-3 px-6 cursor-pointer text-lg 
               md:text-xl shadow-xl hover:bg-[#efbd18] transition-all" text="Thử Ngay"/>
