@@ -86,13 +86,9 @@ const ChatPage = () => {
             </div>
 
             <div className="h-[10%] flex justify-left items-center mx-5">
-                    <button
-                        onClick={() => navigate("/dashboard")}
-                        className="flex items-center gap-2 text-[#efbd18] hover:text-[#f8d94b] transition-colors"
-                        >
-                        <ArrowLeft size={20} />
-                        <span className="text-lg font-semibold">Back to Dashboard</span>
-                    </button>
+                <button onClick={() => navigate("/dashboard")} className="flex items-center gap-2 text-[#efbd18] hover:text-[#f8d94b] transition-colors">
+                    <ArrowLeft size={20} /><span className="text-lg font-semibold">Back to Dashboard</span>
+                </button>
             </div>
         </div>
       </div>
