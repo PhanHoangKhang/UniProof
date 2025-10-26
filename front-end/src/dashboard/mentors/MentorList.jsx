@@ -33,7 +33,7 @@ const MentorList = () => {
     }
     return false;
   });
-  
+
 return (
   <div className="p-6 w-full">
     <h2 className="text-2xl font-bold mb-6 text-center text-[#16456a]">
@@ -104,7 +104,7 @@ return (
               {mentor.experience && (
                 <p>
                   💼 <span className="font-semibold">Kinh nghiệm:</span>{" "}
-                  {mentor.experience} năm
+                  {mentor.experience}
                 </p>
               )}
               {mentor.certificates && mentor.certificates.length > 0 && (
