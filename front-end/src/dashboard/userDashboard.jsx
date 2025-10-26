@@ -150,6 +150,14 @@ const UserDashboard = () => {
               >
                 Lịch đã đặt
               </NavLink>
+              <NavLink to="/chat" className={({ isActive }) => isActive
+                    ? " border-[rgb(5,247,202)] text-[#faca0b] text-2xl"
+                    : "hover:text-[#faca0b] text-2xl"
+                }
+                onClick={() => setOpen(false)}
+              >
+                Chat với mentor
+              </NavLink>
               <NavLink to="/dashboard/user-info" className="px-4 py-2 bg-white text-[#16456a] rounded-lg hover:bg-[#faca0b] 
                 hover:text-white transition font-semibold shadow-sm w-fit"
                 onClick={() => setOpen(false)}
