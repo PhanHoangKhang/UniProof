@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
 import axios from "axios";
+import { use } from "react";
 
 const UserInfo = () => {
   const [user, setUser] = useState(null);
@@ -10,6 +11,9 @@ const UserInfo = () => {
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const { apiUrl } = useContext(StoreContext);
+  const [university, setUniversity] = useState('')
+  const [experience, setExperience] = useState('')
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -24,6 +28,9 @@ const UserInfo = () => {
         setName(res.data.user.name);
         setMajor(res.data.user.major || "");
         setDescription(res.data.user.description || "")
+        setUniversity(res.data.user.university || "")
+        setExperience(res.data.user.experience || "")
+        
       } catch (error) {
         console.error("Failed to fetch user info:", error);
       }
@@ -43,6 +50,9 @@ const UserInfo = () => {
           name: name !== user.name ? name : undefined,
           major: major !== user.major ? major : undefined,
           description: description !== user.description ? description : undefined,
+          university: university !== user.university ? university : undefined,
+          experience: experience !== user.experience ? experience : undefined,
+          
         },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -108,6 +118,34 @@ const UserInfo = () => {
         </div>
 
         <div className="mb-4">
+          <label className="font-semibold block mb-1">Học vấn:</label>
+          {editing ? (
+            <input
+              type="text"
+              value={university}
+              onChange={(e) => setUniversity(e.target.value)}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#368cd1]"
+            />
+          ) : (
+            <p>{user.university || "Chưa cập nhật"}</p>
+          )}
+        </div>
+
+         <div className="mb-4">
+          <label className="font-semibold block mb-1">Kinh nghiệm:</label>
+          {editing ? (
+            <input
+              type="text"
+              value={experience}
+              onChange={(e) => setExperience(e.target.value)}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#368cd1]"
+            />
+          ) : (
+            <p>{user.experience || "Chưa cập nhật"}</p>
+          )}
+        </div>
+
+        <div className="mb-4">
           <label className="font-semibold block mb-1">Giới thiệu:</label>
           {editing ? (
             <textarea
@@ -120,6 +158,12 @@ const UserInfo = () => {
             <p>{user.description || "Chưa cập nhật"}</p>
           )}
         </div>
+
+        
+
+        
+
+        
 
         <div className="mb-4">
           <p><span className="font-semibold">Email:</span> {user.email}</p>

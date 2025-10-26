@@ -30,9 +30,9 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     university: { type: String },
-    experience: { type: Number }, // in years
-    certificates: [{ type: String }], // array of certificate names
-    bio: { type: String }, // short introduction
+    experience: { type: String }, // in years
+    certificates: { type: String },
+    languages: {type: String} // array of certificate names
   },
   { timestamps: true }
 );
