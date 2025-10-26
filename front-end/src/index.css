@@ -66,3 +66,34 @@ body {
   animation: slideUp 0.4s ease-in-out forwards;
 }
 
+/* Base: hidden before scroll */
+.fade-in {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* From left to center */
+.fade-in-left {
+  transform: translateX(-80px);
+}
+
+/* From right to center */
+.fade-in-right {
+  transform: translateX(80px);
+}
+
+/* From bottom to center */
+.fade-in-up {
+  transform: translateY(60px);
+}
+
+/* When element becomes visible */
+.fade-in.visible,
+.fade-in-left.visible,
+.fade-in-right.visible,
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
