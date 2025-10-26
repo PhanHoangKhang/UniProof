@@ -110,7 +110,7 @@ const Navbar = () => {
 
               <Confirm
                 buttonClass="px-4 py-2 bg-[#efbd18] text-[#16456a] rounded-lg hover:bg-[#d4a915] 
-              transition font-semibold shadow-sm text-xl"
+                transition font-semibold shadow-sm text-xl"
                 text="🚪 Đăng xuất"
                 setUser={setUser}
               ></Confirm>
