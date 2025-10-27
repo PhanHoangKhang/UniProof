@@ -13,8 +13,8 @@ const UserInfo = () => {
   const { apiUrl } = useContext(StoreContext);
   const [university, setUniversity] = useState('')
   const [experience, setExperience] = useState('')
+  const [certificates, setCertificates] = useState('')
   
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -30,6 +30,7 @@ const UserInfo = () => {
         setDescription(res.data.user.description || "")
         setUniversity(res.data.user.university || "")
         setExperience(res.data.user.experience || "")
+        setCertificates(res.data.user.certificates || "")
         
       } catch (error) {
         console.error("Failed to fetch user info:", error);
@@ -52,7 +53,7 @@ const UserInfo = () => {
           description: description !== user.description ? description : undefined,
           university: university !== user.university ? university : undefined,
           experience: experience !== user.experience ? experience : undefined,
-          
+          certificates: certificates !== user.certificates ? certificates : undefined,
         },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -159,12 +160,20 @@ const UserInfo = () => {
           )}
         </div>
 
+          <div className="mb-4">
+            <label className="font-semibold block mb-1">Chứng chỉ:</label>
+            {editing ? (
+              <input
+                type="text"
+                value={certificates}
+                onChange={(e) => setCertificates(e.target.value)}
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#368cd1]"
+              />
+            ) : (
+              <p>{user.certificates || "Chưa cập nhật"}</p>
+            )}
+          </div>
         
-
-        
-
-        
-
         <div className="mb-4">
           <p><span className="font-semibold">Email:</span> {user.email}</p>
           <p><span className="font-semibold">Role:</span> {user.role}</p>

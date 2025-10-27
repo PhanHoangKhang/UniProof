@@ -107,10 +107,10 @@ return (
                   {mentor.experience}
                 </p>
               )}
-              {mentor.certificates && mentor.certificates.length > 0 && (
+              {mentor.certificates && (
                 <p>
                   🎓 <span className="font-semibold">Chứng chỉ:</span>{" "}
-                  {mentor.certificates.join(", ")}
+                  {mentor.certificates}
                 </p>
               )}
               {mentor.description && (
@@ -122,12 +122,6 @@ return (
 
             {/* Buttons */}
             <div className="flex flex-row gap-2 w-full justify-center items-center">
-              <Link
-                to={`/dashboard/meeting/mentor-info/${mentor._id}`}
-                className="bg-[#368cd1] text-white text-center px-4 py-2 rounded-lg hover:bg-[#efbd18] transition-all"
-              >
-                Profile
-              </Link>
               <Link
                 to={`/dashboard/meeting/book/${mentor._id}`}
                 className="bg-[#368cd1] text-white px-4 py-2 rounded-lg text-center hover:bg-[#efbd18] transition-all"

@@ -96,7 +96,7 @@ const registerUser = async (req, res) => {
 
 // Update user name or major (only the provided fields)
 const updateUserInfo = async (req, res) => {
-  const { userId, name, major, description, university, experience } = req.body; // userId can come from token or request body
+  const { userId, name, major, description, university, experience, certificates } = req.body; // userId can come from token or request body
 
   try {
     // Build dynamic update object
@@ -152,6 +152,16 @@ const updateUserInfo = async (req, res) => {
       updateData.university = university.trim();
     }
 
+    if (certificates !== undefined) {
+      if (!certificates.trim()) {
+        return res.json({
+          success: false,
+          message: "Chứng chỉ không được bỏ trống",
+        });
+      }
+      updateData.certificates = certificates.trim();
+    }
+
     // If no field provided
     if (Object.keys(updateData).length === 0) {
       return res.json({
@@ -180,7 +190,7 @@ const updateUserInfo = async (req, res) => {
         description: updatedUser.description,
         university: updatedUser.university,
         experience: updatedUser.experience,
-        
+        certificates: updatedUser.certificates,
       },
     });
   } catch (error) {
