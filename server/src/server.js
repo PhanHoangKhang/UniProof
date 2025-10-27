@@ -23,7 +23,7 @@ connect()
 
 const io = new Server(server, {
   cors: {
-    origin: "https://uniproof-frontend.onrender.com", // your frontend
+    origin: "https://uniproof.onrender.com", // your frontend
     methods: ["GET", "POST"],
   },
 });
