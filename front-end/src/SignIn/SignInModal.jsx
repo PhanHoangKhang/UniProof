@@ -109,31 +109,6 @@ const SignInModal = ({ buttonClass, text }) => {
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-gray-700 mb-1 font-bold">
-                      Role
-                    </label>
-                    <div className="flex gap-4">
-                      <label className="flex items-center gap-2">
-                        <input
-                          type="radio"
-                          value="Student"
-                          checked={role === "Student"}
-                          onChange={(e) => setRole(e.target.value)}
-                        />
-                        Student
-                      </label>
-                      <label className="flex items-center gap-2">
-                        <input
-                          type="radio"
-                          value="Mentor"
-                          checked={role === "Mentor"}
-                          onChange={(e) => setRole(e.target.value)}
-                        />
-                        Mentor
-                      </label>
-                    </div>
-                  </div>
                 </>
               )}
 
