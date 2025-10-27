@@ -31,6 +31,9 @@ const MentorList = () => {
     } else if (searchType === "major" && mentor.major) {
       return mentor.major.toLowerCase().includes(searchTerm.toLowerCase().trim());
     }
+    else if (searchType === "email" && mentor.email) {
+      return mentor.email.toLowerCase().includes(searchTerm.toLowerCase().trim());
+    }
     return false;
   });
 
@@ -47,7 +50,7 @@ return (
         placeholder={
           searchType === "name"
             ? "Nhập tên mentor..."
-            : "Nhập chuyên ngành..."
+            : searchType === "email" ? "Nhập email..." : 'Nhập chuyên môn...'
         }
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
@@ -59,7 +62,8 @@ return (
         className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#16456a] bg-white"
       >
         <option value="name">Tìm theo tên</option>
-        <option value="major">Tìm theo chuyên ngành</option>
+        <option value="email">Tìm theo email</option>
+        <option value="major">Tìm theo chuyên môn</option>
       </select>
     </div>
 
