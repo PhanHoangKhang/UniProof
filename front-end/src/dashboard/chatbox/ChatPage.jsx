@@ -16,7 +16,7 @@ const ChatPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(`${apiUrl}/user`);
+        const res = await fetch(`${apiUrl}/user/mentors`);
         const data = await res.json();
         const filtered = data.filter((u) => u._id !== user._id);
         setUsers(filtered);
