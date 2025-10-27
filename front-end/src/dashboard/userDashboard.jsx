@@ -59,7 +59,7 @@ const UserDashboard = () => {
           </span>
         </a>
         <div className="hidden md:flex items-center gap-4"> 
-          <Link to="/chat" className='bg-[#efbd18] rounded-lg py-3 px-4 font-semibold text-black text-md'>
+          <Link to="/chat" className='bg-[#efbd18] rounded-lg py-3 px-4 font-semibold text-black text-[16px]'>
           Chat với mentor
           </Link> 
         </div>
