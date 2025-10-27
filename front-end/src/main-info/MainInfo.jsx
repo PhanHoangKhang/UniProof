@@ -36,7 +36,7 @@ const MainInfo = () => {
             </div>
           </div>
           {/* Image Section */}
-          <div className="lg:max-w-[50%] flex justify-center fade-in fade-in-right">
+          <div className="lg:max-w-[50%] flex justify-center fade-in fade-in-right shadow-md">
             <img src={image} alt="Main illustration" className="w-72 md:w-96 lg:w-[450px] h-auto object-contain"/>
           </div>
         </div>
