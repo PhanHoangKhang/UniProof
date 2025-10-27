@@ -89,7 +89,7 @@ return (
             <p className="text-gray-600 text-sm mb-1">{mentor.email}</p>
             {mentor.major && (
               <p className="text-sm text-[#16456a] font-medium italic mb-3">
-                {mentor.major}
+                Chuyên môn: {mentor.major}
               </p>
             )}
 
