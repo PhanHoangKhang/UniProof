@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
 import axios from "axios";
-import { use } from "react";
 
 const UserInfo = () => {
   const [user, setUser] = useState(null);
