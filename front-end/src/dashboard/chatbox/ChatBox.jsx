@@ -65,7 +65,7 @@ export default function ChatBox({ currentUser, selectedUser }) {
   return (
     <div className="flex flex-col h-full bg-[#f2fafc] border-l border-[#efbd18]/20 rounded-tr-xl rounded-br-xl shadow-inner backdrop-blur-sm">
       {/* Header */}
-      <div className="flex items-center gap-3 px-14 md:px-5 py-3 bg-black border-b border-[#efbd18]/20">
+      <div className="fixed flex items-center gap-3 px-14 md:px-5 py-3 bg-black border-b border-[#efbd18]/20">
         <div className="w-10 h-10 bg-[#efbd18] rounded-full flex items-center justify-center text-[#0b1725] text-xl font-bold shadow-md">
           {selectedUser.name?.charAt(0).toUpperCase()}
         </div>
@@ -78,7 +78,7 @@ export default function ChatBox({ currentUser, selectedUser }) {
       </div>
 
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-4 scrollbar-thin scrollbar-thumb-[#efbd18]/40 scrollbar-track-transparent">
+      <div className="mt-20 flex-1 overflow-y-auto px-4 py-3 space-y-4 scrollbar-thin scrollbar-thumb-[#efbd18]/40 scrollbar-track-transparent">
         {messages.map((m, i) => {
             const isMine = m.senderId === currentUser._id;
 
