@@ -53,7 +53,7 @@ const ChatPage = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Tìm kiếm người dùng..."
+            placeholder="Tìm kiếm mentor..."
             className="w-full px-3 py-2 rounded-full bg-white/20 placeholder-white/70 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#efbd18]"
           />
         </div>
