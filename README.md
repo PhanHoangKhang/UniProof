@@ -3,11 +3,11 @@
 git clone https://github.com/PhanHoangKhang/UniProof.git
 ```
 ## Run Front-end
-``bash
+```bash
 cd front-end
 npm install
 npm run dev
-``
+```
 ## Run Back-end
 ```bash
 cd server
