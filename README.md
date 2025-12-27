@@ -14,4 +14,17 @@ cd server
 npm install
 npm run dev
 ```
+# Environment variables
+Create a .env file in the front-end directory and add:
+```bash
+VITE_API_URL= (Example: http://localhost:4000)
+```
+Create a .env file in the server directory and add:
+```bash
+PORT =
+JWT_SECRET = 
+MONGO_URI = 
+GRAMMAR_KEY =  (Open AI API key)
+```
+
 
